@@ -1,0 +1,38 @@
+class Solution {
+public:
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        unordered_map<int,int>m1;
+        vector<int>ans;
+        for(auto &t:nums)
+        {
+            m1[t]++;
+        }
+        int n=nums.size();
+        vector<vector<int>>v1(n+1);   //take 2d vector because it can take max of k elements also size of the vector should be n+1 since there are n elements and in worst case if every element is present once and k =1 we will have to return every element in the array
+        int cnt=0;
+        for(auto it:m1)
+        {
+            v1[it.second].push_back(it.first);
+        }
+        for(int i=n;i>=0;i--)
+        {
+            for(auto it:v1[i])
+            {
+                if(!v1.empty()) //checking if v1 is empty
+                {
+                    ans.push_back(it);
+                    cnt++;
+                }
+                if(cnt == k)
+                {
+                    return ans;
+                }
+                
+
+                
+            }
+        }
+        return{};
+        
+    }
+};
