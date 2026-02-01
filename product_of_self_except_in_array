@@ -1,0 +1,25 @@
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int left=1;
+        vector<int>ans(nums.size(),1);  
+        int right=1;  
+        //core intuition is product of array except self=leftsubproduct*rightsubproduct
+        //maintain 2 seperate left and rightsubproduct
+        //traverse the array first and store left subproduct
+        //then traverse backwards and multiply the right subproduct
+        for(int i=1;i<nums.size();i++)
+        {
+            left=left*nums[i-1];
+            ans[i]=left;
+        }
+        for(int j=nums.size()-2;j>=0;j--)
+        {
+            right=right*nums[j+1];
+            ans[j]=ans[j]*right;
+        }
+        return ans;
+
+        
+    }
+};
