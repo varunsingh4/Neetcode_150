@@ -1,0 +1,27 @@
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+     //intuition is to take traverse fast till n and then take slow pointer and traverse until the fast pointer is null so in this way the slow pointer will alwyas point to the node which needs to be removed
+     ListNode*slow=head;
+     ListNode*fast=head;
+     for(int i=0;i<n;i++)
+     {
+        fast=fast->next;
+       
+     }
+      if(fast==NULL)
+        {
+            return head->next;
+        }
+     
+     while(fast->next!=NULL)
+     {
+        slow=slow->next;
+        fast=fast->next;
+     }
+     slow->next=slow->next->next;
+     return head;
+        
+        
+    }
+};
