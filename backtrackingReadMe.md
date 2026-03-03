@@ -132,6 +132,38 @@ If the answer is **YES** → It’s backtracking.
 That’s the core idea behind subset problems.
 
 ---
+# 🌳 Core Concept of `i + 1` vs `index + 1` in Subset Backtracking
+
+In subset backtracking, we are building a **tree of choices**.
+
+At every step:
+
+> “I chose element at position `i`.”
+
+So the next step must start from:
+
+> “The element after `i`.”
+
+That is why we use:
+
+---
+
+## 🔥 What `index` Represents
+
+`index` means:
+
+> “From where am I allowed to start choosing?”
+
+It is a **boundary**.
+
+It is **not** the element you just picked.
+
+---
+
+## 🔎 Why `index + 1` Is Wrong Conceptually
+
+Imagine:
+
 
 ## 🚀 Summary
 
